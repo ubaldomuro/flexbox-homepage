@@ -1,46 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>UBA's GTi</title>
-    <link href="styles.css" rel="stylesheet">
-    <link rel="shortcut icon" href="resources/Peugeot_icon.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
-  </head>
-  <body>
-    <nav>
-      <img  src="/resources/Peugeot_icon.png">
-      <div  id="links">
-        <a  href="#">Presentacion</a>
-        <a  href="#">Galeria</a>
-        <a  href="#">Staff</a>
-      </div>
-    </nav>
-    <h1 class="titulo">PEUGEOT 208 GTi</h1>
-    <header>
-      <div  class="video-container">
-        <iframe src="https://www.youtube.com/embed/QeMh9_a_B4A?controls=0&mute=1&autoplay=1" title="background video"></iframe>
-      </div>
-    </header>
-    <div id="video-cover">
+
+<head>
+  <title>UBA's GTi</title>
+  <link href="styles.css" rel="stylesheet">
+  <link rel="shortcut icon" href="resources/Peugeot_icon.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <script>
+    function isElementInViewport(el) {
+      var rect = el.getBoundingClientRect();
+
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+      );
+    }
+
+    window.addEventListener('scroll', (e) => {
+      const title = document.getElementsByClassName('titulo')[0];
+      const isInViewport = isElementInViewport(title);
+      console.log({ isInViewport });
+      if (!isInViewport) {
+        title.classList.remove('sticky');
+      } else {
+        title.classList.add('sticky');
+      }
+    });
+  </script>
+  <nav>
+    <img src="resources/Peugeot_icon.png">
+    <div id="links">
+      <a href="#">Presentacion</a>
+      <a href="#">Galeria</a>
+      <a href="#">Staff</a>
     </div>
-    
-    <main>
-      <div  class="intro">
-        <h2>Continuando el Legado</h2>
-        <p>El Peugeot 208 GTi con sus 200 caballos de fuerza un bodykit
-          deportivo y una carrocería compacta es un digno sucesor de
-          la leyenda de los 80s el 205 GTi, el pequeño francés se ve
-          bien por donde lo mires pero en lo personal me encanta su silueta
-          lateral y la parte trasera con ese gran alerón que es lo que todos
-          verán cuando los pases a gran velocidad.</p>
-        <p>Explosivo, compacto y hermoso el 208 GTi es un clásico moderno en el mundo de los hot-hatchs.</p>
-        <img class="logo" src="/resources/Peugeot_logo.png">
-      </div>
-      <div  class="gallery"></div>
-      <div  class="staff"></div>
-    </main>
-    <footer></footer>
-  </body>
+  </nav>
+  <header>
+    <div class="video-container">
+      <h1 class="titulo">PEUGEOT 208 GTi</h1>
+      <iframe src="https://www.youtube.com/embed/QeMh9_a_B4A?controls=0&mute=1&autoplay=1"
+        title="background video"></iframe>
+      <div id="video-cover"></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="intro">
+      <h2>Continuando el Legado</h2>
+      <p>El Peugeot 208 GTi con sus 200 caballos de fuerza un bodykit
+        deportivo y una carrocería compacta es un digno sucesor de
+        la leyenda de los 80s el 205 GTi, el pequeño francés se ve
+        bien por donde lo mires pero en lo personal me encanta su silueta
+        lateral y la parte trasera con ese gran alerón que es lo que todos
+        verán cuando los pases a gran velocidad.</p>
+      <p>Explosivo, compacto y hermoso el 208 GTi es un clásico moderno en el mundo de los hot-hatchs.</p>
+      <!--<img class="logo" src="resources/Peugeot_logo.png">-->
+    </div>
+    <div class="gallery"></div>
+    <div class="staff"></div>
+  </main>
+  <footer></footer>
+</body>
+
 </html>
